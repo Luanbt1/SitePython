@@ -19,3 +19,18 @@ body {
 .btn {
     margin-right: 5px;
 }
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form p {
+    margin-top: 20px;
+}
