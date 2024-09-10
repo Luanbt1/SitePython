@@ -1,0 +1,22 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}My Tasks{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>My Tasks</h2>
+    <a class="btn btn-primary" href="{% url 'task_create' %}">Add New Task</a>
+    <ul class="list-group mt-3">
+        {% for task in tasks %}
+        <li class="list-group-item">
+            <strong>{{ task.title }}</strong> - {{ task.get_status_display }} - Assigned to: {{ task.assigned_to.username|default:"Unassigned" }}
+            <a class="btn btn-warning btn-sm float-right ml-2" href="{% url 'task_edit' task.pk %}">Edit</a>
+            <form action="{% url 'task_delete' task.pk %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

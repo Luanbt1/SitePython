@@ -1,0 +1,12 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}Task Form{% endblock %}
+
+{% block content %}
+<h2>{% if form.instance.pk %}Edit Task{% else %}Create Task{% endif %}</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary" type="submit">Save</button>
+</form>
+{% endblock %}
